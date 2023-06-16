@@ -1,0 +1,63 @@
+import threading
+import time
+import RPi.GPIO as GPIO
+import wavGen
+import wavRec1
+
+# Define a function to be run as thread 1
+def thread1_function(pin):
+    # Code for thread 1
+    wavGen.wavGenerator(pin)
+
+# Define a function to be run as thread 2
+def thread2_function(channel):
+    # Code for thread 2
+    wavRec1.save_sensor_data_to_file(channel)
+
+pin1 = 11
+channel1 = 0
+pin2 = 13  # Additional pin for the new thread
+channel2 = 1  # Additional channel for the new thread
+
+# Create thread 1
+thread1 = threading.Thread(target=thread1_function, args=(pin1,))
+
+# Create thread 2
+thread2 = threading.Thread(target=thread2_function, args=(channel1,))
+
+# Create thread 3
+thread3 = threading.Thread(target=thread1_function, args=(pin2,))
+
+# Create thread 4
+thread4 = threading.Thread(target=thread2_function, args=(channel2,))
+
+# Start thread 1 and thread 2 simultaneously
+thread1.start()
+thread2.start()
+
+# Sleep for 10 seconds
+time.sleep(10)
+GPIO.cleanup()
+
+# Start thread 3 and thread 4 simultaneously
+thread3.start()
+thread4.start()
+
+# Sleep for another 10 seconds
+time.sleep(10)
+GPIO.cleanup()
+
+# Function to stop the execution of threads
+def stop_execution():
+    thread1.join()
+    thread2.join()
+    thread3.join()
+    thread4.join()
+stop_execution()
+
+ 
+
+
+# Call the stop_execution function to join all threads and perform GPIO cleanup
+
+
