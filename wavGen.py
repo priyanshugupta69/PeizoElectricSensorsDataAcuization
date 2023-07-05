@@ -7,7 +7,7 @@ def wavGenerator(pin):
     output_pin = pin
 
     # Set the frequency (in Hz)
-    frequency = 500
+    frequency = 1500
 
     # Calculate the period (in seconds)
     period = 1.0 / frequency

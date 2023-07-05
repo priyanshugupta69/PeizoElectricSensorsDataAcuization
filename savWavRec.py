@@ -23,4 +23,3 @@ def save_sensor_data_to_file(channel):
         print("Error: Unable to open the file.")
 
 
-save_sensor_data_to_file(0)
