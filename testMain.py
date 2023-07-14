@@ -15,21 +15,39 @@ def thread2_function(channel):
     wavRec1.save_sensor_data_to_file(channel)
 
 pin1 = 11
-channel1 = 0
 pin2 = 13  # Additional pin for the new thread
+pin3 = 15
+pin4 = 16
+channel1 = 0
 channel2 = 1  # Additional channel for the new thread
+channel3 = 2 
+channel4 = 3 
 
-# Create thread 1
+# transmitor 1
 thread1 = threading.Thread(target=thread1_function, args=(pin1,))
 
-# Create thread 2
+# reciever 1
 thread2 = threading.Thread(target=thread2_function, args=(channel1,))
 
-# Create thread 3
+# transmitter 2
 thread3 = threading.Thread(target=thread1_function, args=(pin2,))
 
-# Create thread 4
-thread4 = threading.Thread(target=thread2_function, args=(channel2,))
+# reciever 2
+thread4 = threading.Thread(target=thread2_function, args = (channel2,))
+
+# trasmitter 3
+thread5 = threading.Thread(target=thread2_function, args=(pin3,))
+
+# reciver 3
+thread6 = threading.Thread(target=thread2_function, args=(channel3,))
+
+# transmitter 4
+thread7 = threading.Thread(target=thread2_function, args=(pin4,))
+
+# reciever 4
+thread8 = threading.Thread(target=thread2_function, args=(channel4,))
+
+
 
 # Start thread 1 and thread 2 simultaneously
 thread1.start()

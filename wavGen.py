@@ -1,14 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
-def wavGenerator(pin):
+def wavGenerator(pin ,frequency):
     # Set up GPIO mode and pin
     GPIO.setmode(GPIO.BOARD)
     output_pin = pin
-
-    # Set the frequency (in Hz)
-    frequency = 1500
-
     # Calculate the period (in seconds)
     period = 1.0 / frequency
 
@@ -29,6 +25,7 @@ def wavGenerator(pin):
             time.sleep(period / 2)
             GPIO.output(output_pin, GPIO.LOW)
             time.sleep(period / 2)
+        GPIO.cleanup()
     except KeyboardInterrupt:
         GPIO.cleanup()
 
