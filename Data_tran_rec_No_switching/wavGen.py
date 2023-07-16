@@ -1,3 +1,4 @@
+# code for transmission and switching of multiple transmitters[used in mulInmulOut.py]
 import RPi.GPIO as GPIO
 import time
 

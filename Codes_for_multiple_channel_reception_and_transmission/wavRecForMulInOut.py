@@ -1,4 +1,4 @@
-
+# code for reception at multiple channels[used in mulInmulOut.py]
 import time
 import smbus
 import csv

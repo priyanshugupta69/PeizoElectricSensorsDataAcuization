@@ -1,3 +1,4 @@
+#transmission and reception of data simultanoesly[No switching]
 import threading
 import time
 import RPi.GPIO as GPIO

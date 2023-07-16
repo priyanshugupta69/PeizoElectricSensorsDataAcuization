@@ -1,3 +1,4 @@
+#generate input signal for a PRF of 2 seconds
 import RPi.GPIO as GPIO
 import time
 

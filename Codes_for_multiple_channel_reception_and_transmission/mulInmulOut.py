@@ -1,3 +1,4 @@
+#Code for transmitting and recieving singals on multiple channels[using threading to combine transmission and reception codes]
 import threading
 import time
 import RPi.GPIO as GPIO
