@@ -16,12 +16,10 @@ def thread2_function(channel):
 
 pin1 = 11
 pin2 = 13  # Additional pin for the new thread
-pin3 = 15
-pin4 = 16
+
 channel1 = 0
 channel2 = 1  # Additional channel for the new thread
-channel3 = 2 
-channel4 = 3 
+
 
 # transmitor 1
 thread1 = threading.Thread(target=thread1_function, args=(pin1,))
@@ -35,17 +33,6 @@ thread3 = threading.Thread(target=thread1_function, args=(pin2,))
 # reciever 2
 thread4 = threading.Thread(target=thread2_function, args = (channel2,))
 
-# trasmitter 3
-thread5 = threading.Thread(target=thread2_function, args=(pin3,))
-
-# reciver 3
-thread6 = threading.Thread(target=thread2_function, args=(channel3,))
-
-# transmitter 4
-thread7 = threading.Thread(target=thread2_function, args=(pin4,))
-
-# reciever 4
-thread8 = threading.Thread(target=thread2_function, args=(channel4,))
 
 
 
